@@ -2,90 +2,66 @@
 
 import React, { useState } from "react";
 import Navbar from "@/component/navbar";
-import image from "../../../../public/headphone.jpg";
-import image2 from "../../../../public/watch.jpg";
-import { StaticImageData } from "next/image";
 import MessageBubble from "./MessageBubble";
 import ChatInput from "./ChatInput";
 import ProductCard from "./ProductCard";
 import ResetButton from "./ResetButton";
 
-
-type Message = {
-  id: number;
-  text: string;
-  sender: "user" | "bot";
-  timestamp: Date;
-};
-
-
 type Product = {
   id: number;
   name: string;
   price: number;
-  image: StaticImageData; // Using Next.js StaticImageData type
-  description: string;
+  image: string;
+  desc: string;
 };
 
+type Message = {
+  id: string;
+  text: string | Product[];
+  sender: "user" | "bot";
+  timestamp: Date;
+};
+
+// Create a fixed initial timestamp
+const INITIAL_TIMESTAMP = new Date("2024-01-01T00:00:00");
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
-      id: 1,
+      id: "initial",
       text: "Hello! How can I help you today?",
       sender: "bot",
-      timestamp: new Date(),
+      timestamp: INITIAL_TIMESTAMP,
     },
   ]);
 
-  const [recommendedProducts] = useState<Product[]>([
-    {
-      id: 1,
-      name: "Wireless Headphones",
-      price: 99.99,
-      image: image,
-      description: "High-quality wireless headphones with noise cancellation",
-    },
-    {
-      id: 2,
-      name: "Smart Watch",
-      price: 199.99,
-      image: image2,
-      description: "Feature-rich smartwatch with health tracking",
-    },
-  ]);
-
-  const handleSendMessage = (text: string) => {
+  const handleSendMessage = (text: string | Product[], isUser: boolean) => {
     const newMessage: Message = {
-      id: messages.length + 1,
+      id: Math.floor(Math.random() * 1000000).toString(),
       text,
-      sender: "user",
+      sender: isUser ? "user" : "bot",
       timestamp: new Date(),
     };
-    setMessages([...messages, newMessage]);
-
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse: Message = {
-        id: messages.length + 2,
-        text: "I'm here to help you find the perfect products!",
-        sender: "bot",
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, botResponse]);
-    }, 1000);
+    setMessages((prev) => [...prev, newMessage]);
   };
+
+  // console.log("this is messages in chat", messages);
 
   const handleReset = () => {
     setMessages([
       {
-        id: 1,
+        id: "initial",
         text: "Hello! How can I help you today?",
         sender: "bot",
-        timestamp: new Date(),
+        timestamp: INITIAL_TIMESTAMP,
       },
     ]);
   };
+
+  // Get the latest product message
+  const latestProductMessage = messages
+    .filter((message) => Array.isArray(message.text))
+    .pop();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -113,9 +89,14 @@ export default function ChatPage() {
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Recommended Products
               </h3>
-              {recommendedProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+              {latestProductMessage &&
+                Array.isArray(latestProductMessage.text) && (
+                  <div className="space-y-4">
+                    {latestProductMessage.text.map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+                )}
             </div>
             <div className="mt-4">
               <ResetButton onReset={handleReset} />
