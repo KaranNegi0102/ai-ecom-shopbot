@@ -66,34 +66,22 @@ export default function ChatPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex gap-6">
-          {/* Chat Window */}
-          <div className="flex-1 bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="p-4 border-b">
-              <h2 className="text-xl font-semibold text-gray-800">
-                Chat Support
-              </h2>
-            </div>
-            <div className="h-[600px] overflow-y-auto p-4">
-              {messages.map((message) => (
-                <MessageBubble key={message.id} message={message} />
-              ))}
-            </div>
-            <ChatInput onSendMessage={handleSendMessage} />
-          </div>
-
+      <div className="container mx-auto px-4 py-4 md:py-8">
+        <div className="flex flex-col-reverse lg:flex-row gap-4 lg:gap-6">
           {/* Product Recommendations */}
-          <div className="w-80">
+          <div className="w-full lg:w-1/2">
             <div className="bg-white rounded-lg shadow-lg p-4">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Recommended Products
               </h3>
               {latestProductMessage &&
                 Array.isArray(latestProductMessage.text) && (
-                  <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
                     {latestProductMessage.text.map((product) => (
-                      <ProductCard key={product.id} product={product} />
+                      <ProductCard
+                        key={`${product.name}-${product.price}`}
+                        product={product}
+                      />
                     ))}
                   </div>
                 )}
@@ -101,6 +89,21 @@ export default function ChatPage() {
             <div className="mt-4">
               <ResetButton onReset={handleReset} />
             </div>
+          </div>
+
+          {/* Chat Window */}
+          <div className="flex-1 bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="p-4 border-b">
+              <h2 className="text-xl font-semibold text-gray-800">
+                Chat Support
+              </h2>
+            </div>
+            <div className="h-[400px] md:h-[600px] overflow-y-auto p-4">
+              {messages.map((message) => (
+                <MessageBubble key={message.id} message={message} />
+              ))}
+            </div>
+            <ChatInput onSendMessage={handleSendMessage} />
           </div>
         </div>
       </div>

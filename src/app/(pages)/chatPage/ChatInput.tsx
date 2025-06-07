@@ -29,7 +29,7 @@ const ChatInput = ({
       try {
         // Send query to API
         const response = await axios.post(
-          "https://maximum-sweeping-sloth.ngrok-free.app/send_query",
+          "https://ecombackend2-ha8d.onrender.com/send_query",
           {
             query: message,
           }

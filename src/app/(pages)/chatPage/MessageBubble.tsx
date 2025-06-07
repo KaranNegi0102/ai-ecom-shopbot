@@ -3,7 +3,6 @@
 import React from "react";
 
 type Product = {
-  id: number;
   name: string;
   desc: string;
   image: string;
@@ -46,7 +45,10 @@ const MessageBubble = ({ message }: { message: Message }) => {
       return (
         <div className="space-y-4">
           {message.text.map((product: Product) => (
-            <div key={product.id} className="bg-white rounded-lg p-3 shadow-sm">
+            <div
+              key={`${product.name}-${product.price}`}
+              className="bg-white rounded-lg p-3 shadow-sm"
+            >
               <div className="flex items-start gap-3">
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-800">
