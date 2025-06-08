@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 type Product = {
@@ -9,13 +9,14 @@ type Product = {
   price: number;
   image: string;
   desc: string;
+  category: string;
 };
 
-const ChatInput = ({
-  onSendMessage,
-}: {
+type ChatInputProps = {
   onSendMessage: (message: string | Product[], isUser: boolean) => void;
-}) => {
+};
+
+const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -39,14 +40,14 @@ const ChatInput = ({
         console.log("this is the response 2-> ", response.data);
         console.log("this is the response 3-> ", response);
 
-        let datababa;
+        let messageData;
         if (Object.keys(response.data).length === 1) {
-          datababa = response.data;
+          messageData = response.data;
         } else {
-          datababa = response.data.data;
+          messageData = response.data.data;
         }
 
-        onSendMessage(datababa, false);
+        onSendMessage(messageData, false);
       } catch (error) {
         console.error("Error sending query:", error);
         onSendMessage(
@@ -61,22 +62,24 @@ const ChatInput = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 p-4 border-t">
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Type your message..."
-        className="flex-1 p-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-        disabled={isLoading}
-      />
-      <button
-        type="submit"
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
-        disabled={isLoading}
-      >
-        {isLoading ? "Sending..." : "Send"}
-      </button>
+    <form onSubmit={handleSubmit} className="border-t p-4">
+      <div className="flex gap-2">
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Type your message..."
+          className="flex-1 rounded-lg border text-black border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none"
+          disabled={isLoading}
+        />
+        <button
+          type="submit"
+          className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+          disabled={isLoading}
+        >
+          {isLoading ? "Sending..." : "Send"}
+        </button>
+      </div>
     </form>
   );
 };

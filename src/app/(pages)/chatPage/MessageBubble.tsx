@@ -1,12 +1,15 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 type Product = {
+  id: number;
   name: string;
   desc: string;
   image: string;
   price: number;
+  category: string;
 };
 
 type Message = {
@@ -50,6 +53,14 @@ const MessageBubble = ({ message }: { message: Message }) => {
               className="bg-white rounded-lg p-3 shadow-sm"
             >
               <div className="flex items-start gap-3">
+                <div className="relative h-20 w-20 flex-shrink-0">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain rounded-md"
+                  />
+                </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-800">
                     {product.name}

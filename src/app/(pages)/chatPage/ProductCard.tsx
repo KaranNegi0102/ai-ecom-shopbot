@@ -9,18 +9,20 @@ type Product = {
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-      <div className="relative h-40 w-full mb-2">
+    <div className="bg-[#2b2b2b] border-1 border-black shadow-md mb-4 h-[400px] group transition-transform duration-300 hover:-translate-y-2">
+      <div className="relative h-60 w-full border-b-1 border-black mb-2 bg-gray-100 transition-transform duration-300 group-hover:-translate-y-2">
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className="object-cover rounded-md"
+          className="object-contain p-2"
         />
       </div>
-      <h3 className="font-semibold text-gray-800">{product.name}</h3>
-      <p className="text-sm text-gray-600 mb-2">{product.desc}</p>
-      <p className="text-blue-600 font-bold">
+      <h3 className="font-semibold text-center mt-[35px] text-white">
+        {product.name}
+      </h3>
+      <p className="text-sm text-white text-center mb-2">{product.desc}</p>
+      <p className="text-white text-center font-bold">
         ₹{product.price.toLocaleString()}
       </p>
     </div>

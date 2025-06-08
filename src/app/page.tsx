@@ -11,7 +11,7 @@ export default function Home() {
           <div className="text-center">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
               <span className="block">Transform Your</span>
-              <span className="block text-blue-600">E-commerce Experience</span>
+              <span className="block text-bg-[#2b2b2b]">E-commerce Experience</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
               Enhance your online store with our intelligent chatbot. Provide
@@ -22,7 +22,7 @@ export default function Home() {
               <div className="rounded-md shadow">
                 <a
                   href="/chatPage"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2b2b2b] hover:bg-[#757070] md:py-4 md:text-lg md:px-10"
                 >
                   Get Started
                 </a>
@@ -30,7 +30,7 @@ export default function Home() {
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                 <a
                   href="/about"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#2b2b2b] bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                 >
                   Learn More
                 </a>
@@ -56,7 +56,7 @@ export default function Home() {
             <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
               {/* Feature 1 */}
               <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-[#2b2b2b] text-white">
                   <svg
                     className="h-6 w-6"
                     fill="none"
@@ -84,7 +84,7 @@ export default function Home() {
 
               {/* Feature 2 */}
               <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-[#2b2b2b] text-white">
                   <svg
                     className="h-6 w-6"
                     fill="none"
@@ -112,7 +112,7 @@ export default function Home() {
 
               {/* Feature 3 */}
               <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-[#2b2b2b] text-white">
                   <svg
                     className="h-6 w-6"
                     fill="none"
@@ -139,7 +139,7 @@ export default function Home() {
 
               {/* Feature 4 */}
               <div className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-[#2b2b2b] text-white">
                   <svg
                     className="h-6 w-6"
                     fill="none"
@@ -170,7 +170,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600">
+      <section className="bg-[#2b2b2b]">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             <span className="block">Ready to get started?</span>
@@ -180,7 +180,7 @@ export default function Home() {
             <div className="inline-flex rounded-md shadow">
               <a
                 href="/chatPage"
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-[#2b2b2b] bg-white hover:bg-blue-50"
               >
                 Get started
               </a>
@@ -188,7 +188,7 @@ export default function Home() {
             <div className="ml-3 inline-flex rounded-md shadow">
               <a
                 href="/about"
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-400"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-[#2b2b2b] bg-[#a08f8f] hover:bg-[#727070]"
               >
                 Learn more
               </a>
