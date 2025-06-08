@@ -1,4 +1,5 @@
 import Navbar from "@/component/navbar";
+import image from "../../public/phone.jpg";
 
 export default function Home() {
   return (
@@ -6,23 +7,33 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${image.src})` }}
+      >
+        <div className="absolute inset-0 bg-opacity-50"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl tracking-tight font-extrabold text-white text-left text-shadow-[2px_2px_0_rgb(0,0,0)] sm:text-5xl md:text-6xl">
               <span className="block">Transform Your</span>
-              <span className="block text-bg-[#2b2b2b]">E-commerce Experience</span>
+              <span className="block text-bg-[#2b2b2b]">
+                E-commerce Experience
+              </span>
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Enhance your online store with our intelligent chatbot. Provide
-              instant support, boost sales, and create seamless shopping
-              experiences for your customers.
+            <p className="mt-3 text-gray-800 sm:text-lg md:mt-5  md:text-xl md:max-w-3xl text-right ml-auto">
+              Enhance your online store with our intelligent
+              <br />
+              chatbot. Provide instant support, boost sales,
+              <br />
+              and create seamless shopping experiences for
+              <br />
+              your customers.
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
                 <a
                   href="/chatPage"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2b2b2b] hover:bg-[#757070] md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-white hover:bg-[#757070] md:py-4 md:text-lg md:px-10"
                 >
                   Get Started
                 </a>
@@ -30,7 +41,7 @@ export default function Home() {
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                 <a
                   href="/about"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#2b2b2b] bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                 >
                   Learn More
                 </a>

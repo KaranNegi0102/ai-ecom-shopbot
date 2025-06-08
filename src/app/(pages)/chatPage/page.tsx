@@ -50,7 +50,7 @@ export default function ChatPage() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "https://ai-ecom-shopbot-backend.onrender.com/get_products"
+          "https://ecombackend2-ha8d.onrender.com/get_products"
         );
         const fetchedProducts = response.data.data;
         setAllProducts(fetchedProducts);
