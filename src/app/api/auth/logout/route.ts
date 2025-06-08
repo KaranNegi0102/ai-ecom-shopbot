@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import dbConnection from "@/app/utils/dataBase/dbConnection";
+import dbConnection from "@/app/utils/dbbackend/connectionDB";
 import { ApiError } from "@/app/services/apiResponse";
 import jwt from "jsonwebtoken";
 import User from "@/app/utils/models/userModel";
