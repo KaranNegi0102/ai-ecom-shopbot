@@ -70,6 +70,6 @@ async def send_query():
         return result
     return result
 
-if _name_ == "_main_":
+if __name__ == "___main___":
     import uvicorn
     uvicorn.run(app,host="0.0.0.0",port=8000)

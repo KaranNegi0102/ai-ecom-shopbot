@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 db_connection_string = os.getenv("DBCONNECTION")
 class DBoperation:
     def _init_(self):
