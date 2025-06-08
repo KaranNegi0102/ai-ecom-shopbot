@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
-import connectionDB from "@/app/utils/dataBase/dbConnection";
+import connectionDB from "@/app/utils/dbbackend/connectionDB";
 import User from "@/app/utils/models/userModel";
 import { ApiError, ApiSuccess } from "@/app/services/apiResponse";
 
