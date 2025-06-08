@@ -56,7 +56,7 @@ export default function RegisterPage() {
       <div className="flex-1 flex items-center justify-center px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
         <div className="w-full max-w-md p-6 sm:p-9 rounded-xl shadow-xl space-y-8 sm:space-y-8 relative bg-white/90 backdrop-blur-sm">
           <div>
-            <h2 className="text-center text-3xl sm:text-3xl font-bold tracking-tight text-blue-600">
+            <h2 className="text-center text-3xl sm:text-3xl font-bold tracking-tight text-[#2b2b2b]">
               Create your account
             </h2>
             <p className="text-center text-md sm:text-sm mt-2 text-gray-600">
@@ -184,7 +184,7 @@ export default function RegisterPage() {
                 Already have an account?{" "}
                 <Link
                   href="/login"
-                  className="font-medium text-md sm:text-sm text-blue-600 hover:text-blue-700 hover:underline"
+                  className="font-medium text-md sm:text-sm text-[#2b2b2b] hover:text-black hover:underline"
                 >
                   Sign in
                 </Link>
@@ -194,7 +194,7 @@ export default function RegisterPage() {
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white hover:bg-blue-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors duration-200"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#2b2b2b] px-4 py-2 text-base font-medium text-white hover:bg-black cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors duration-200"
               >
                 Create Account
               </button>

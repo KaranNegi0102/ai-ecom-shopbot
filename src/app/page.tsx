@@ -1,7 +1,22 @@
+"use client";
+
 import Navbar from "@/component/navbar";
 import image from "../../public/phone.jpg";
+import { useAppSelector } from "@/app/hooks/hooks";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const { isLoggedIn } = useAppSelector((state) => state.auth);
+  const router = useRouter();
+
+  const handleGetStarted = () => {
+    if (isLoggedIn) {
+      router.push("/chatPage");
+    } else {
+      router.push("/login");
+    }
+  };
+
   return (
     <main className="min-h-screen bg-gray-50">
       <Navbar />
@@ -31,17 +46,17 @@ export default function Home() {
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
-                <a
-                  href="/chatPage"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-white hover:bg-[#757070] md:py-4 md:text-lg md:px-10"
+                <button
+                  onClick={handleGetStarted}
+                  className="w-full flex cursor-pointer items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-white hover:bg-gray-500 hover:text-white md:py-4 md:text-lg md:px-10"
                 >
                   Get Started
-                </a>
+                </button>
               </div>
-              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+              <div className="mt-3 rounded-md shadow cursor-pointer sm:mt-0 sm:ml-3">
                 <a
                   href="/about"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center  justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-900 md:py-4 md:text-lg md:px-10"
                 >
                   Learn More
                 </a>

@@ -3,20 +3,34 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/hooks/hooks";
 import { logout, fetchUserData } from "@/app/redux/slices/authSlice";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const { isLoggedIn } = useAppSelector((state: any) => state.auth);
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
     dispatch(fetchUserData());
   }, [dispatch]);
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
+  async function handleLogout() {
+    try {
+      const response = await axios.get("/api/auth/logout", {
+        withCredentials: true,
+      });
+      if (response.data.success) {
+        console.log("user logged out successfully");
+        dispatch(logout());
+        router.push("/");
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  }
 
   // Don't render auth-dependent content until after mounting
   const renderAuthLinks = () => {
@@ -33,7 +47,7 @@ const Navbar = () => {
           </Link>
           <button
             onClick={handleLogout}
-            className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+            className="text-white cursor-pointer hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
           >
             Logout
           </button>
@@ -66,7 +80,7 @@ const Navbar = () => {
           {/* Left side - Brand name */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-bold text-white">
-              E-com
+              AI E-commerce
             </Link>
           </div>
 
