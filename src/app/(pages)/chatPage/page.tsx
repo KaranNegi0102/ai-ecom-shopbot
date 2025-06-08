@@ -119,7 +119,7 @@ export default function ChatPage() {
                       ${
                         selectedCategory === category
                           ? "bg-[#2b2b2b] text-white"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                          : "bg-white text-gray-700 hover:bg-gray-300"
                       }`}
                   >
                     {category.charAt(0).toUpperCase() + category.slice(1)}
