@@ -140,8 +140,8 @@ export default function ChatPage() {
 
           {/* Chat Window */}
           {isChatOpen && (
-            <div className="fixed right-4 top-4 w-196 bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="p-4 border-b flex justify-between items-center">
+            <div className="fixed right-4  top-4 w-196 bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="p-4 border-b flex justify-between  bg-[#f9dfdf] items-center">
                 <h2 className="text-xl font-semibold text-gray-800">
                   Chat Support
                 </h2>
@@ -168,9 +168,10 @@ export default function ChatPage() {
           {!isChatOpen && (
             <button
               onClick={() => setIsChatOpen(true)}
-              className="fixed bottom-2 right-4 bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition-colors"
+              className="fixed bottom-2 right-4 bg-[#f9dfdf] text-black hover:text-white hover:bg-[#2b2b2b] p-3 flex gap-2 rounded-full shadow-lg transition-colors"
             >
-              <MessageSquare size={24} />
+              <MessageSquare size={24} /> 
+              <span>ChatBot</span>
             </button>
           )}
         </div>

@@ -46,31 +46,29 @@ const MessageBubble = ({ message }: { message: Message }) => {
     // Handle product array messages
     if (Array.isArray(message.text) && message.text.length > 0) {
       return (
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 cursor-pointer md:grid-cols-3 gap-4">
           {message.text.map((product: Product) => (
             <div
               key={`${product.name}-${product.price}`}
-              className="bg-white rounded-lg p-3 shadow-sm"
+              className="bg-[#2b2b2b] border-1 border-black shadow-md mb-4 h-[400px]"
             >
-              <div className="flex items-start gap-3">
-                <div className="relative h-20 w-20 flex-shrink-0">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-contain rounded-md"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-800">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 mt-1">{product.desc}</p>
-                  <p className="text-blue-600 font-bold mt-2">
-                    ₹{product.price.toLocaleString()}
-                  </p>
-                </div>
+              <div className="relative h-60 w-full border-b-1 border-black mb-2 bg-gray-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-contain p-2"
+                />
               </div>
+              <h3 className="font-semibold text-center mt-[35px] text-white truncate px-2">
+                {product.name}
+              </h3>
+              <p className="text-xs text-white text-center mb-2 line-clamp-2 px-2">
+                {product.desc}
+              </p>
+              <p className="text-white text-center font-bold">
+                ₹{product.price.toLocaleString()}
+              </p>
             </div>
           ))}
         </div>
@@ -90,7 +88,7 @@ const MessageBubble = ({ message }: { message: Message }) => {
       <div
         className={`max-w-[70%] rounded-lg px-4 py-2 ${
           message.sender === "user"
-            ? "bg-blue-600 text-white"
+            ? "bg-[#2b2b2b] text-white"
             : "bg-gray-100 text-gray-800"
         }`}
       >

@@ -62,7 +62,7 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-t p-4">
+    <form onSubmit={handleSubmit} className="border-t p-4 ">
       <div className="flex gap-2">
         <input
           type="text"
@@ -74,7 +74,7 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
         />
         <button
           type="submit"
-          className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+          className="rounded-lg bg-[#2b2b2b] px-4 py-2 text-white hover:bg-[#514e4e] hover:text cursor-pointer"
           disabled={isLoading}
         >
           {isLoading ? "Sending..." : "Send"}
