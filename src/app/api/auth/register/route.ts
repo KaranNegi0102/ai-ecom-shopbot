@@ -1,6 +1,6 @@
 import {ApiSuccess , ApiError} from "@/app/services/apiResponse";
 import {NextRequest} from "next/server";
-import connectionDB from "@/app/utils/dataBase/dbConnection"
+import connectionDB from "../../../utils/dataBase/dbConnection";
 import User from "@/app/utils/models/userModel";
 
 export async function POST(req:NextRequest){
