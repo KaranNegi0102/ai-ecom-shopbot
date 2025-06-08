@@ -94,7 +94,7 @@ Available in the report file.
 
 
 
-
+## 👤Author
 Built by Karan Negi.
 Feel free to open issues or contribute to the project!
 
