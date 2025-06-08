@@ -92,6 +92,9 @@ Modular React components styled using **Tailwind CSS**, enhanced with images and
 ## 📸 Screenshots
 Available in the report file.
 
+
+
+
 Built by Karan Negi.
 Feel free to open issues or contribute to the project!
 
