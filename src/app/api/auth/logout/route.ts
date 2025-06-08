@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import dbConnection from "@/app/utils/dbbackend/connectionDB";
+import connectionDB from "@/app/utils/dbbackend/connectionDB";
 import { ApiError } from "@/app/services/apiResponse";
 import jwt from "jsonwebtoken";
 import User from "@/app/utils/models/userModel";
 
 export async function GET(req: NextRequest) {
   try {
-    await dbConnection();
+    await connectionDB();
 
     const token = req.cookies.get("AuthToken")?.value;
     if (!token) {
