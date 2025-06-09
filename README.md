@@ -11,6 +11,7 @@ AI E-Commerce Chatbot is an intelligent conversational web application designed 
 **Demo Credentials**  
 - Email: `admin@gmail.com`  
 - Password: `admin@123`
+- note : If the data doesn't load on the website, it might be because the server or API goes into delay or sleep mode for resource saving when inactive. This is common with free or hobby-tier deployments (render). After some idle time, the backend may take a few seconds to "wake up" and respond to the first request.
 
 ---
 
