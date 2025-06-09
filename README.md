@@ -11,6 +11,7 @@ AI E-Commerce Chatbot is an intelligent conversational web application designed 
 **Demo Credentials**  
 - Email: `admin@gmail.com`  
 - Password: `admin@123`
+- {note : when loading the product page be patient it takes time to fetch data from the db, just refresh the pages }
 
 ---
 
