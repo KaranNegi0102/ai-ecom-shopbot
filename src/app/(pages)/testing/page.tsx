@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/component/navbar";
-import image from "../../public/phone.jpg";
+import image from "../../../../public/phone.jpg";
 import { useAppSelector } from "@/app/hooks/hooks";
 import { useRouter } from "next/navigation";
 
