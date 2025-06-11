@@ -65,7 +65,7 @@ const Hero = () => {
                   Let our AI do the searching for you—find exactly what you need
                   in seconds.
                   <br />
-                  From recommendations to instant support, we're here to make
+                  From recommendations to instant support, we&apos;re here to make
                   shopping effortless.
                   <br />
                   Your personalized shopping journey starts here.
