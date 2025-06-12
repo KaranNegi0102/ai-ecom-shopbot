@@ -1,17 +1,23 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import image1 from "../../public/image1.jpg";
 import image2 from "../../public/image2.jpg";
 import image3 from "../../public/image3.jpg";
 import image4 from "../../public/levitating.jpg";
 import image5 from "../../public/headphones2.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 interface Product {
   id: number;
   name: string;
-  image: any; // Using any for StaticImageData
+  image: any;
   price: string;
 }
 
@@ -49,93 +55,57 @@ const products: Product[] = [
 ];
 
 const ProductsCarousel = () => {
-  const [position, setPosition] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [api, setApi] = useState<any>();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPosition((prevPosition) => {
-        const newPosition = prevPosition - 1.5;
-        const itemWidth = 288; // w-72 (18rem) = 288px
-        const totalWidth = itemWidth * products.length;
-
-        // When we've scrolled past the first set of items
-        if (newPosition <= -totalWidth) {
-          setIsTransitioning(true);
-          // Jump back to the start without animation
-          setTimeout(() => {
-            setPosition(0);
-            setIsTransitioning(false);
-          }, 50);
-          return -totalWidth;
-        }
-        return newPosition;
-      });
-    }, 30);
-
-    return () => clearInterval(interval);
-  }, []);
+    if (!api) return;
+  }, [api]);
 
   return (
-    <div className="w-full overflow-hidden bg-gray-100 py-8">
-      <div className="relative" ref={containerRef}>
-        <div
-          className="flex space-x-6"
-          style={{
-            transform: `translateX(${position}px)`,
-            width: "fit-content",
-            transition: isTransitioning ? "none" : "transform 16ms linear",
-          }}
-        >
-          {/* First set of products */}
+    <div className="w-full bg-gray-100 py-8">
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 3000,
+            stopOnInteraction: false,
+          }),
+        ]}
+        className="w-full"
+      >
+        <CarouselContent>
           {products.map((product) => (
-            <div
+            <CarouselItem
               key={product.id}
-              className="flex-none w-72 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+              className="md:basis-1/2 lg:basis-1/3"
             >
-              <div className="relative h-56 w-full">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+              <div className="p-1">
+                <div className="flex-none w-full bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                  <div className="relative h-56 w-full">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {product.name}
+                    </h3>
+                    <p className="text-gray-600">{product.price}</p>
+                  </div>
+                </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600">{product.price}</p>
-              </div>
-            </div>
+            </CarouselItem>
           ))}
-          {/* Duplicate products for seamless loop */}
-          {products.map((product) => (
-            <div
-              key={`duplicate-${product.id}`}
-              className="flex-none w-72 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
-            >
-              <div className="relative h-56 w-full">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600">{product.price}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+        </CarouselContent>
+      </Carousel>
     </div>
   );
 };

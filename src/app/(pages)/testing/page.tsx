@@ -2,6 +2,8 @@ import React from "react";
 import VerticalNavbar from "./../../../component/verticalNavbar";
 import image3 from "../../../../public/levitating.jpg";
 import ProductsCarousel from "@/component/productsCaraousel";
+import Footer from "@/component/footer";
+import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 const Hero = () => {
   return (
@@ -14,7 +16,7 @@ const Hero = () => {
       >
         {/* Top Header */}
         <div className="relative z-20 p-8 flex justify-center items-center">
-          <div className="text-gray700 font-bold text-3xl">ShopBot</div>
+          <div className="text-gray-700 font-bold text-3xl">ShopBot</div>
         </div>
 
         {/* Vertical Navigation (absolute position) */}
@@ -25,14 +27,14 @@ const Hero = () => {
         {/* Main Hero Content */}
         <div className="flex-1 flex h-full items-center  relative z-10">
           <div className="max-w-7xl  px-6 lg:px-2 w-full">
-            <div className="grid grid-cols-1 p-4 lg:grid-cols-2 gap-1 items-center">
+            <div className=" grid grid-cols-1 p-4 lg:grid-cols-2 gap-1 items-center">
               {/* Left content */}
-              <div className="space-y-3">
+              <div className=" border-4 border-black space-y-3">
                 <div className="space-y-6 ">
                   <h1 className="text-5xl lg:text-6xl xl:text-5xl font-bold text-gray-600 leading-tight">
                     Smart Shopping
                     <br />
-                    <span className="text-gray-900">with AI Assistant</span>
+                    <TypingAnimation className="ml-10  text-gray-900">with AI Assistant</TypingAnimation>
                   </h1>
 
                   <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
@@ -84,6 +86,8 @@ const Hero = () => {
           <ProductsCarousel />
         </div>
       </div>
+
+      <Footer/>
     </div>
   );
 };
