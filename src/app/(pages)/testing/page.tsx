@@ -15,8 +15,8 @@ const Hero = () => {
         }}
       >
         {/* Top Header */}
-        <div className="relative z-20 p-8 flex justify-center items-center">
-          <div className="text-gray-700 font-bold text-3xl">ShopBot</div>
+        <div className="relative z-20 p-5 flex mx-auto">
+          <div className="text-gray-700 font-bold text-4xl">ShopBot</div>
         </div>
 
         {/* Vertical Navigation (absolute position) */}
@@ -29,25 +29,27 @@ const Hero = () => {
           <div className="max-w-7xl  px-6 lg:px-2 w-full">
             <div className=" grid grid-cols-1 p-4 lg:grid-cols-2 gap-1 items-center">
               {/* Left content */}
-              <div className=" border-4 border-black space-y-3">
-                <div className="space-y-6 ">
+              <div className=" space-y-5">
+                <div>
                   <h1 className="text-5xl lg:text-6xl xl:text-5xl font-bold text-gray-600 leading-tight">
                     Smart Shopping
                     <br />
-                    <TypingAnimation className="ml-10  text-gray-900">with AI Assistant</TypingAnimation>
+                    <TypingAnimation className="ml-10  text-gray-900">
+                      with AI Assistant
+                    </TypingAnimation>
                   </h1>
 
-                  <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
+                  <p className="text-sm ml-15 text-gray-500 max-w-lg leading-relaxed">
                     Experience the future of shopping with our AI-powered
                     chatbot.
                     <br />
                     Get personalized recommendations and instant support.
                     <br />
-                    Shop smarter, faster, and more efficiently.
+                    Shop smarter, faster, and more efficiently with ShopBot.
                   </p>
                 </div>
 
-                <button className="group mt-1 bg-gray-900  text-white px-8 py-4 rounded-none font-medium hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+                <button className="group mt-1 ml-20 bg-gray-900  text-white px-8 py-4 rounded-none font-medium hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
                   <span className="flex items-center tracking-wide">
                     START SHOPPING
                   </span>
@@ -55,20 +57,20 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className=" p-4 mt-4">
-              <div className="mt-3">
-                <h1 className="text-5xl lg:text-5xl xl:text-5xl font-bold text-gray-600 leading-tight">
+            <div className="p-4 mt-4">
+              <div className="mt-3 space-y-6">
+                <h1 className="text-5xl ml-30 lg:text-5xl xl:text-5xl font-bold text-gray-600 leading-tight">
                   AI-Powered
                   <br />
                   <span className="text-gray-600">Shopping Experience</span>
                 </h1>
 
-                <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
+                <p className="text-sm ml-40  text-gray-500 max-w-lg leading-relaxed">
                   Let our AI do the searching for you—find exactly what you need
                   in seconds.
                   <br />
-                  From recommendations to instant support, we&apos;re here to make
-                  shopping effortless.
+                  From recommendations to instant support, we&apos;re here to
+                  make shopping effortless.
                   <br />
                   Your personalized shopping journey starts here.
                 </p>
@@ -87,7 +89,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -12,10 +12,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-white text-lg font-bold">AudioShop</h3>
+            <h3 className="text-white text-lg font-bold">ShopBot</h3>
             <p className="text-sm">
-              Your one-stop destination for premium audio equipment and
-              accessories. Experience sound like never before.
+              Your one-stop destination for premium appliances and
+              accessories.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="hover:text-white transition-colors">

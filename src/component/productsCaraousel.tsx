@@ -5,8 +5,8 @@ import Image from "next/image";
 import image1 from "../../public/image1.jpg";
 import image2 from "../../public/image2.jpg";
 import image3 from "../../public/image3.jpg";
-import image4 from "../../public/levitating.jpg";
-import image5 from "../../public/headphones2.jpg";
+import image4 from "../../public/phone2.jpg";
+import image5 from "../../public/headphone.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -18,45 +18,45 @@ interface Product {
   id: number;
   name: string;
   image: any;
-  price: string;
 }
 
 const products: Product[] = [
   {
     id: 1,
-    name: "Premium Headphones",
-    image: image1,
-    price: "$99.99",
+    name: "MSI 540HZ Desktop",
+    image: image1
   },
   {
     id: 2,
-    name: "Wireless Earbuds",
-    image: image2,
-    price: "$149.99",
+    name: "Iphone 14 Pro Max",
+    image: image2
+    
   },
   {
     id: 3,
-    name: "Noise Cancelling",
-    image: image3,
-    price: "$199.99",
+    name: "Caravan Classic S1",
+    image: image3
+    
   },
   {
     id: 4,
-    name: "Gaming Headset",
-    image: image4,
-    price: "$79.99",
+    name: "Google Pixel 7 Pro",
+    image: image4
+    
   },
   {
     id: 5,
-    name: "Studio Headphones",
-    image: image5,
-    price: "$129.99",
+    name: "Hyper X Cloud Stinger",
+    image: image5
+    
   },
 ];
 
 const ProductsCarousel = () => {
   const [api, setApi] = useState<any>();
 
+
+  //first i thought to implement api for calling all products but its taking a lot of time for loading products (because am using free tier deployment it has a delay of 1 min ) that why am using demo images
   useEffect(() => {
     if (!api) return;
   }, [api]);
@@ -98,7 +98,6 @@ const ProductsCarousel = () => {
                     <h3 className="text-lg font-semibold text-gray-800">
                       {product.name}
                     </h3>
-                    <p className="text-gray-600">{product.price}</p>
                   </div>
                 </div>
               </div>
