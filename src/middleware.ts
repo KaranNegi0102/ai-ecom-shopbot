@@ -10,7 +10,7 @@ export function middleware(req:NextRequest){
     return NextResponse.redirect(new URL("/",req.url));
   }
   if(token && publicRoutes.includes(req.nextUrl.pathname)){
-    return NextResponse.redirect(new URL("/chattingPage",req.url));
+    return NextResponse.redirect(new URL("/chatPage",req.url));
   }
 
   return NextResponse.next();
