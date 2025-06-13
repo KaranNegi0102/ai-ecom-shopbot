@@ -71,7 +71,7 @@ const ProductsCarousel = () => {
         }}
         plugins={[
           Autoplay({
-            delay: 3000,
+            delay: 2000,
             stopOnInteraction: false,
           }),
         ]}
@@ -83,7 +83,7 @@ const ProductsCarousel = () => {
               key={product.id}
               className="md:basis-1/2 lg:basis-1/3"
             >
-              <div className="p-1">
+              <div className="  p-3">
                 <div className="flex-none w-full bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                   <div className="relative h-56 w-full">
                     <Image

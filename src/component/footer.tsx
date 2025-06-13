@@ -136,7 +136,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm">
-              © {new Date().getFullYear()} AudioShop. All rights reserved.
+              © {new Date().getFullYear()} ShopBot. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link

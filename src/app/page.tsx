@@ -30,7 +30,9 @@ export default function Home() {
       >
         {/* Top Header */}
         <div className="relative z-20 p-5 flex  shadow-full mx-auto">
-          <div className="text-gray-700 font-bold text-4xl text-shadow-lg/20">ShopBot</div>
+          <div className="text-gray-700 font-bold text-4xl text-shadow-lg/20">
+            ShopBot
+          </div>
         </div>
 
         {/* Vertical Navigation (absolute position) */}
@@ -63,8 +65,10 @@ export default function Home() {
                   </p>
                 </div>
 
-                <button onClick={handleGetStarted} 
-                  className="group mt-1 ml-20 bg-gray-900 cursor-pointer rounded-md  text-white px-8 py-4 font-medium hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+                <button
+                  onClick={handleGetStarted}
+                  className="group mt-1 ml-20 bg-gray-900 cursor-pointer rounded-md  text-white px-8 py-4 font-medium hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+                >
                   <span className="flex items-center tracking-wide">
                     START SHOPPING
                   </span>
@@ -95,12 +99,53 @@ export default function Home() {
         </div>
       </div>
       {/* Product Carousel Section */}
-      <div className="w-full bg-white py-12">
+      <div className="w-full bg-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Featured Products
+          <h2 className="text-3xl font-bold text-gray-700 mb-8 text-center">
+            Products
           </h2>
           <ProductsCarousel />
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div className="w-full bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-700 mb-12 text-center">
+            Why Choose ShopBot?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-2xl mb-4">🤖</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                AI-Powered Assistance
+              </h3>
+              <p className="text-gray-600">
+                Get instant, intelligent responses to your shopping queries and
+                personalized recommendations.
+              </p>
+            </div>
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-2xl mb-4">⚡</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Lightning Fast
+              </h3>
+              <p className="text-gray-600">
+                Find exactly what you&apos;re looking for in seconds with our
+                advanced search capabilities.
+              </p>
+            </div>
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-2xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Personalized Experience
+              </h3>
+              <p className="text-gray-600">
+                Enjoy a shopping experience tailored to your preferences and
+                needs.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
