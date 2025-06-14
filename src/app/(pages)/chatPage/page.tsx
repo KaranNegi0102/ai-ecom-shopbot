@@ -33,6 +33,7 @@ export default function ChatPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [isLoading, setIsLoading] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "initial",
@@ -50,6 +51,7 @@ export default function ChatPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/get_products`
         );
@@ -59,6 +61,8 @@ export default function ChatPage() {
         setProducts(randomProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -100,6 +104,23 @@ export default function ChatPage() {
       },
     ]);
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar />
+        <div className="container mx-auto px-4 py-4 md:py-0">
+          <div className="flex items-center justify-center min-h-[60vh]">
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-gray-600 text-lg">Loading products...</p>
+              <p className="text-gray-600 italic text-lg">This might take a little while as the server is currently in sleep mode and needs some time to wake up. Thank you for your patience. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
