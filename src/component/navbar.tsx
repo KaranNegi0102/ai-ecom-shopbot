@@ -41,13 +41,13 @@ const Navbar = () => {
         <>
           <Link
             href="/profile"
-            className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+            className="text-gray-700 hover:text-gray-300 px-3 py-2 rounded-md text-md font-medium"
           >
             Profile
           </Link>
           <button
             onClick={handleLogout}
-            className="text-white cursor-pointer hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+            className="text-gray-700 cursor-pointer hover:text-gray-300 px-3 py-2  text-md font-medium"
           >
             Logout
           </button>
@@ -59,13 +59,13 @@ const Navbar = () => {
       <>
         <Link
           href="/login"
-          className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+          className="text-gray-700 hover:text-gray-300 px-3 py-2 rounded-md text-md font-medium"
         >
           Login
         </Link>
         <Link
           href="/register"
-          className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+          className="text-gray-700 hover:text-gray-300 px-3 py-2 rounded-md text-md font-medium"
         >
           Register
         </Link>
@@ -74,28 +74,28 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#2b2b2b] shadow-md">
+    <nav className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        <div className="flex h-16 items-center justify-between">
           {/* Left side - Brand name */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-white">
-              AI E-commerce
+            <Link href="/" className="text-3xl  font-bold text-gray-700">
+              ShopBot
             </Link>
           </div>
 
-          {/* Right side - Navigation links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
+          {/* Center - Navigation links */}
+          <div className="hidden md:block flex-1">
+            <div className="flex justify-center items-center space-x-4">
               <Link
                 href="/"
-                className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-gray-300 px-3 py-2 rounded-md text-md font-medium"
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-gray-300 px-3 py-2 rounded-md text-md font-medium"
               >
                 About Us
               </Link>

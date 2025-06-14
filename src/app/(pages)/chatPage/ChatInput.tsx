@@ -30,7 +30,7 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
       try {
         // Send query to API
         const response = await axios.post(
-          "https://ecombackend2-ha8d.onrender.com/send_query",
+          `${process.env.NEXT_PUBLIC_API_URL}/send_query`,
           {
             query: message,
           }

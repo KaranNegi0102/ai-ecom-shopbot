@@ -7,6 +7,7 @@ import ChatInput from "./ChatInput";
 import ProductCard from "./ProductCard";
 import ResetButton from "./ResetButton";
 import axios from "axios";
+import SponsorDiv from "@/component/productPage/SponsorDiv";
 
 type Product = {
   id: number;
@@ -50,7 +51,7 @@ export default function ChatPage() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "https://ecombackend2-ha8d.onrender.com/get_products"
+          `${process.env.NEXT_PUBLIC_API_URL}/get_products`
         );
         const fetchedProducts = response.data.data;
         setAllProducts(fetchedProducts);
@@ -76,6 +77,9 @@ export default function ChatPage() {
       ? products
       : products.filter((product) => product.category === selectedCategory);
 
+  // Get random products for the carousel
+  const carouselProducts = getRandomProducts(allProducts, 5);
+
   const handleSendMessage = (text: string | Product[], isUser: boolean) => {
     const newMessage: Message = {
       id: Math.floor(Math.random() * 1000000).toString(),
@@ -100,30 +104,35 @@ export default function ChatPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="container mx-auto px-4 py-4 md:py-8">
+      <div className="container  mx-auto  px-4 py-4 md:py-0">
         <div className="flex flex-col-reverse lg:flex-row gap-4 lg:gap-6">
           {/* Product Recommendations */}
           <div className="w-full lg:w-full">
-            <div className="bg-[#f9dfdf] rounded-lg p-4">
-              <h3 className="text-3xl font-semibold text-center text-gray-800 mb-4">
-                All Collections
+            <div className="bg-white rounded-lg p-4">
+              <SponsorDiv products={carouselProducts} />
+
+              <h3 className="text-3xl mt-19 font-semibold text-center underline italic  text-gray-800 mb-3">
+                All Products
               </h3>
 
               {/* Category Filter */}
-              <div className="flex flex-wrap justify-center gap-2 mb-6">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-md cursor-pointer text-sm font-medium transition-colors
-                      ${
+              <div className="flex flex-wrap justify-center border-b-3 border-black pb-8 items-center gap-2 mb-12">
+                {categories.map((category, index) => (
+                  <React.Fragment key={category}>
+                    <span
+                      onClick={() => setSelectedCategory(category)}
+                      className={`cursor-pointer hover:underline text-sm ${
                         selectedCategory === category
-                          ? "bg-[#2b2b2b] text-white"
-                          : "bg-white text-gray-700 hover:bg-gray-300"
+                          ? "font-semibold"
+                          : "text-gray-600"
                       }`}
-                  >
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </button>
+                    >
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                    </span>
+                    {index < categories.length - 1 && (
+                      <span className="text-gray-400">•</span>
+                    )}
+                  </React.Fragment>
                 ))}
               </div>
 
@@ -170,7 +179,7 @@ export default function ChatPage() {
               onClick={() => setIsChatOpen(true)}
               className="fixed bottom-2 right-4 bg-[#f9dfdf] text-black hover:text-white hover:bg-[#2b2b2b] p-3 flex gap-2 rounded-full shadow-lg transition-colors"
             >
-              <MessageSquare size={24} /> 
+              <MessageSquare size={24} />
               <span>ChatBot</span>
             </button>
           )}
