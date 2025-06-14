@@ -39,7 +39,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/products"
+                  href="/chatPage"
                   className="hover:text-white transition-colors"
                 >
                   Products
@@ -47,7 +47,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/aboutus"
                   className="hover:text-white transition-colors"
                 >
                   About Us
@@ -55,7 +55,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/"
                   className="hover:text-white transition-colors"
                 >
                   Contact
@@ -63,7 +63,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/"
                   className="hover:text-white transition-colors"
                 >
                   Blog
@@ -78,7 +78,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/shipping"
+                  href="/"
                   className="hover:text-white transition-colors"
                 >
                   Shipping Policy
@@ -86,7 +86,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/returns"
+                  href="/"
                   className="hover:text-white transition-colors"
                 >
                   Returns & Refunds
@@ -94,7 +94,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/faq"
+                  href="/"
                   className="hover:text-white transition-colors"
                 >
                   FAQ
@@ -102,7 +102,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/"
                   className="hover:text-white transition-colors"
                 >
                   Terms & Conditions
@@ -140,19 +140,19 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6">
               <Link
-                href="/privacy"
+                href="/"
                 className="text-sm hover:text-white transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="/terms"
+                href="/"
                 className="text-sm hover:text-white transition-colors"
               >
                 Terms of Service
               </Link>
               <Link
-                href="/cookies"
+                href="/"
                 className="text-sm hover:text-white transition-colors"
               >
                 Cookie Policy

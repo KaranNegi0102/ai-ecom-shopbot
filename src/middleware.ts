@@ -1,7 +1,7 @@
 import {NextResponse , NextRequest} from "next/server";
 
 const protectedRoutes = ["/chatPage"];
-const publicRoutes = ["/aboutus","/login","/register"];
+const publicRoutes = ["/login","/register"];
 
 export function middleware(req:NextRequest){
   const token = req.cookies.get("AuthToken")?.value;
@@ -17,5 +17,5 @@ export function middleware(req:NextRequest){
 }
 
 export const config ={
-  matcher: ["/chatPage","/login","/register","/aboutus"],
+  matcher: ["/chatPage","/login","/register"],
 }
