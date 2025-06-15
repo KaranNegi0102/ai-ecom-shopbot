@@ -90,10 +90,6 @@ Modular React components styled using **Tailwind CSS**, enhanced with images and
 - pip install -r requirements.txt
 - uvicorn main:app --reload
 
-## 📸 Screenshots
-Available in the report file.
-
-
 
 ## 👤Author
 Built by Karan Negi.
