@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import {toast} from "react-hot-toast"
+
 
 
 type LoginFormData = {
@@ -34,10 +36,12 @@ export default function LoginPage() {
 
       if (response.data.success) {
         const userData = response.data.data.userData;
+        toast.success("Login Successful")
         console.log(userData);
         router.push("/");
       }
     } catch (error) {
+      toast.error("Login Failed")
       console.error("Login error:", error);
     }
   };

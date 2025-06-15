@@ -1,16 +1,26 @@
 "use client";
 
-import { useAppSelector } from "@/app/hooks/hooks";
+import { useAppSelector , useAppDispatch } from "@/app/hooks/hooks";
 import { useRouter } from "next/navigation";
 import VerticalNavbar from "@/component/verticalNavbar";
 import image3 from "../../public/levitating.jpg";
 import ProductsCarousel from "@/component/productsCaraousel";
 import Footer from "@/component/footer";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
+import { useEffect } from "react";
+import { fetchUserData } from "@/app/redux/slices/authSlice";
+
+
 
 export default function Home() {
   const { isLoggedIn } = useAppSelector((state) => state.auth);
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, [dispatch]);
+
 
   const handleGetStarted = () => {
     if (isLoggedIn) {
@@ -70,7 +80,7 @@ export default function Home() {
                   className="group mt-1 ml-20 bg-gray-900 cursor-pointer rounded-md  text-white px-8 py-4 font-medium hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
                 >
                   <span className="flex items-center tracking-wide">
-                    START SHOPPING
+                    {isLoggedIn ? "START SHOPPING" : "LOGIN & GET STARTED"}
                   </span>
                 </button>
               </div>

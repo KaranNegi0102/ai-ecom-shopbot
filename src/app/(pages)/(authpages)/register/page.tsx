@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import {toast} from "react-hot-toast"
+
 
 type RegisterFormData = {
   name: string;
@@ -42,9 +44,11 @@ export default function RegisterPage() {
 
       if (response.data.success) {
         console.log("User registered successfully");
+        toast.success("User registered successfully")
         router.push("/login")
       }
     } catch (error) {
+      toast.error("User not registered")
       console.log(error);
     }
   };
