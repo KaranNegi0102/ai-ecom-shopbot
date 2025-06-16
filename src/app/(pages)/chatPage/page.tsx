@@ -8,6 +8,7 @@ import ProductCard from "./ProductCard";
 import ResetButton from "./ResetButton";
 import axios from "axios";
 import SponsorDiv from "@/component/productPage/SponsorDiv";
+import ProductDetail from "./productDetail";
 
 type Product = {
   id: number;
@@ -34,6 +35,7 @@ export default function ChatPage() {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "initial",
@@ -105,6 +107,14 @@ export default function ChatPage() {
     ]);
   };
 
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-white">
@@ -114,7 +124,11 @@ export default function ChatPage() {
             <div className="flex flex-col items-center gap-4">
               <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
               <p className="text-gray-600 text-lg">Loading products...</p>
-              <p className="text-gray-600 italic text-lg">This might take a little while as the server is currently in sleep mode and needs some time to wake up. Thank you for your patience. </p>
+              <p className="text-gray-600 italic text-lg">
+                This might take a little while as the server is currently in
+                sleep mode and needs some time to wake up. Thank you for your
+                patience.{" "}
+              </p>
             </div>
           </div>
         </div>
@@ -125,19 +139,19 @@ export default function ChatPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="container  mx-auto  px-4 py-4 md:py-0">
+      <div className="container mx-auto px-4 py-4 md:py-0">
         <div className="flex flex-col-reverse lg:flex-row gap-4 lg:gap-6">
           {/* Product Recommendations */}
           <div className="w-full lg:w-full">
-            <div className="bg-white rounded-lg p-4">
+            <div className="bg-gray-100 rounded-lg p-4">
               <SponsorDiv products={carouselProducts} />
 
-              <h3 className="text-3xl mt-19 font-semibold text-center underline italic  text-gray-800 mb-3">
+              <h3 className="text-5xl mt-19 font-semibold text-center  text-gray-700 mb-3">
                 All Products
               </h3>
 
               {/* Category Filter */}
-              <div className="flex flex-wrap justify-center border-b-3 border-black pb-8 items-center gap-2 mb-12">
+              <div className="flex flex-wrap justify-center pb-3 items-center gap-2 mb-12">
                 {categories.map((category, index) => (
                   <React.Fragment key={category}>
                     <span
@@ -157,16 +171,26 @@ export default function ChatPage() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 cursor-pointer lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 cursor-pointer lg:grid-cols-3 gap-4">
                 {filteredProducts.map((product: Product) => (
-                  <ProductCard
+                  <div
                     key={`${product.name}-${product.price}`}
-                    product={product}
-                  />
+                    onClick={() => handleProductClick(product)}
+                  >
+                    <ProductCard product={product} />
+                  </div>
                 ))}
               </div>
             </div>
           </div>
+
+          {/* Product Modal */}
+          {selectedProduct && (
+            <ProductDetail
+              selectedProduct={selectedProduct}
+              onClose={handleCloseModal}
+            />
+          )}
 
           {/* Chat Window */}
           {isChatOpen && (

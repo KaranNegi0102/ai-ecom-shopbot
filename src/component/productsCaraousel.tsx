@@ -24,37 +24,32 @@ const products: Product[] = [
   {
     id: 1,
     name: "MSI 540HZ Desktop",
-    image: image1
+    image: image1,
   },
   {
     id: 2,
     name: "Iphone 14 Pro Max",
-    image: image2
-    
+    image: image2,
   },
   {
     id: 3,
     name: "Caravan Classic S1",
-    image: image3
-    
+    image: image3,
   },
   {
     id: 4,
     name: "Google Pixel 7 Pro",
-    image: image4
-    
+    image: image4,
   },
   {
     id: 5,
     name: "Hyper X Cloud Stinger",
-    image: image5
-    
+    image: image5,
   },
 ];
 
 const ProductsCarousel = () => {
   const [api, setApi] = useState<any>();
-
 
   //first i thought to implement api for calling all products but its taking a lot of time for loading products (because am using free tier deployment it has a delay of 1 min ) that why am using demo images
   useEffect(() => {

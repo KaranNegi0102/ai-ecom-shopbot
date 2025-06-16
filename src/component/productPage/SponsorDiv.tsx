@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import image1 from "../../../public/image1.jpg";
 import {
@@ -41,25 +41,24 @@ export default function SponsorDiv({ products }: SponsorDivProps) {
   }, [api]);
 
   return (
-    <div className="p-1">
-      <div className="flex flex-row bg-gray-900 rounded-md justify-between items-center p-12">
+    <div className="py-10 px-4 md:px-8 lg:px-12 bg-gray-100">
+      <div className="flex flex-col lg:flex-row bg-gray-800 rounded-2xl shadow-xl overflow-hidden items-center p-8 lg:p-16 mb-12 transform transition-all duration-500 hover:scale-[1.01]">
         {/* Left content - Product details */}
-        <div className="w-1/2 ml-13 space-y-4">
-          <h2 className="text-4xl text-white font-bold [text-shadow:_2px_2px_0px_rgb(0_0_0_/_40%)]">
-            {featuredProducts[currentIndex]?.name || "Premium Products"}
+        <div className="w-full lg:w-1/3 text-center lg:text-left mb-10 lg:mb-0 lg:mr-16 animate-fade-in">
+          <h2 className="text-2xl md:text-3xl text-gray-500 leading-tight tracking-tight mb-6">
+            Premium Products
           </h2>
-          <p className="text-gray-200">
+          <h2 className="text-5xl md:text-5xl text-white font-extrabold leading-tight tracking-tight mb-6">
+            {featuredProducts[currentIndex]?.name || "Elevate Your Experience"}
+          </h2>
+          <p className="text-gray-300 text-lg leading-relaxed font-light">
             {featuredProducts[currentIndex]?.desc ||
-              "Experience our premium collection of products."}
+              "Discover a curated selection of premium products, meticulously designed to blend innovation with unparalleled quality."}
           </p>
-
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
-            Learn More
-          </button>
         </div>
 
         {/* Right content - Product carousel */}
-        <div className="w-1/2 flex justify-center">
+        <div className="w-full lg:w-2/3 flex justify-center">
           <Carousel
             opts={{
               align: "start",
@@ -67,22 +66,22 @@ export default function SponsorDiv({ products }: SponsorDivProps) {
             }}
             plugins={[
               Autoplay({
-                delay: 3000,
+                delay: 4000,
                 stopOnInteraction: false,
               }),
             ]}
-            className="w-full"
+            className="w-full max-w-xl"
             setApi={setApi}
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {featuredProducts.map((product, index) => (
-                <CarouselItem key={index}>
-                  <div className="relative h-80 w-full mb-2">
+                <CarouselItem key={index} className="pl-4">
+                  <div className="relative h-96 w-full bg-gray-700 rounded-lg shadow-md overflow-hidden flex items-center justify-center p-6 border border-gray-600">
                     <Image
                       src={product.image || image1}
                       alt={product.name}
                       fill
-                      className="object-contain p-2"
+                      className="object-contain"
                     />
                   </div>
                 </CarouselItem>
@@ -92,24 +91,29 @@ export default function SponsorDiv({ products }: SponsorDivProps) {
         </div>
       </div>
 
-      <div className="flex flex-row p-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {featuredProducts.map((product) => (
           <div
             key={`${product.name}-${product.price}`}
-            className="w-1/3 p-4 flex bg-[#0d082c] rounded-md flex-col items-center"
+            className="p-8 flex flex-col items-center text-center bg-gray-800 rounded-xl shadow-md border border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
           >
-            <div className="relative h-30 w-full mb-2">
+            <div className="relative h-48 w-full mb-6 rounded-md overflow-hidden bg-gray-700 flex items-center justify-center p-4 border border-gray-600">
               <Image
                 src={product.image || image1}
                 alt={product.name}
                 fill
-                className="object-contain p-2"
+                className="object-contain"
               />
             </div>
-            <h3 className="mt-4 text-xl text-white font-bold">
+            <h3 className="mt-2 text-2xl text-white font-bold tracking-tight line-clamp-1">
               {product.name}
             </h3>
-            <p className="mt-2 text-white text-center">{product.desc}</p>
+            <p className="mt-2 text-gray-400 text-base leading-relaxed line-clamp-2">
+              {product.desc}
+            </p>
+            <p className="mt-4 text-2xl text-white font-extrabold">
+              ₹{product.price.toLocaleString()}
+            </p>
           </div>
         ))}
       </div>

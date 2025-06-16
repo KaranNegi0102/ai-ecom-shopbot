@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppSelector , useAppDispatch } from "@/app/hooks/hooks";
+import { useAppSelector, useAppDispatch } from "@/app/hooks/hooks";
 import { useRouter } from "next/navigation";
 import VerticalNavbar from "@/component/verticalNavbar";
 import image3 from "../../public/levitating.jpg";
@@ -10,8 +10,6 @@ import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { useEffect } from "react";
 import { fetchUserData } from "@/app/redux/slices/authSlice";
 
-
-
 export default function Home() {
   const { isLoggedIn } = useAppSelector((state) => state.auth);
   const router = useRouter();
@@ -20,7 +18,6 @@ export default function Home() {
   useEffect(() => {
     dispatch(fetchUserData());
   }, [dispatch]);
-
 
   const handleGetStarted = () => {
     if (isLoggedIn) {

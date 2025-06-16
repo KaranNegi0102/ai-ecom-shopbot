@@ -38,7 +38,7 @@ export default function LoginPage() {
         const userData = response.data.data.userData;
         toast.success("Login Successful")
         console.log(userData);
-        router.push("/");
+        router.push("/chatPage");
       }
     } catch (error) {
       toast.error("Login Failed")
