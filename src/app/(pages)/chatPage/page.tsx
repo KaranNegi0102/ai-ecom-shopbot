@@ -195,15 +195,15 @@ export default function ChatPage() {
           {/* Chat Window */}
           {isChatOpen && (
             <div className="fixed right-4  top-4 w-196 bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="p-4 border-b flex justify-between  bg-[#f9dfdf] items-center">
-                <h2 className="text-xl font-semibold text-gray-800">
+              <div className="p-4 border-b flex justify-between  bg-gray-900 items-center">
+                <h2 className="text-xl font-semibold text-white">
                   Chat Support
                 </h2>
                 <div className="flex items-center gap-2">
                   <ResetButton onReset={handleReset} />
                   <button
                     onClick={() => setIsChatOpen(false)}
-                    className="text-gray-500 hover:text-gray-700"
+                    className="text-white cursor-pointer hover:text-gray-700"
                   >
                     ×
                   </button>
@@ -222,11 +222,13 @@ export default function ChatPage() {
           {!isChatOpen && (
             <button
               onClick={() => setIsChatOpen(true)}
-              className="fixed bottom-2 right-4 bg-[#f9dfdf] text-black hover:text-white hover:bg-[#2b2b2b] p-3 flex gap-2 rounded-full shadow-lg transition-colors"
+              className="fixed top-3 right-4 cursor-pointer bg-[#f9dfdf] text-black hover:text-white hover:bg-gray-900 p-3 flex gap-2 rounded-md shadow-lg transition-colors"
             >
               <MessageSquare size={24} />
-              <span>ChatBot</span>
+              <span>Chat Assistant</span>
+              
             </button>
+            
           )}
         </div>
       </div>
