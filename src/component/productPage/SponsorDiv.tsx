@@ -42,10 +42,10 @@ export default function SponsorDiv({ products }: SponsorDivProps) {
 
   return (
     <div className="py-10 px-4 md:px-8 lg:px-12 bg-gray-100">
-      <div className="flex flex-col lg:flex-row bg-gray-800 rounded-2xl shadow-xl overflow-hidden items-center p-8 lg:p-16 mb-12 transform transition-all duration-500 hover:scale-[1.01]">
+      <div className="flex flex-col lg:flex-row bg-gray-800 rounded-2xl shadow-xl overflow-hidden items-center p-6 lg:p-16 mb-4 transform transition-all duration-500 hover:scale-[1.01]">
         {/* Left content - Product details */}
         <div className="w-full lg:w-1/3 text-center lg:text-left mb-10 lg:mb-0 lg:mr-16 animate-fade-in">
-          <h2 className="text-2xl md:text-3xl text-gray-500 leading-tight tracking-tight mb-6">
+          <h2 className="text-2xl md:text-3xl text-gray-300 leading-tight tracking-tight mb-6">
             Premium Products
           </h2>
           <h2 className="text-5xl md:text-5xl text-white font-extrabold leading-tight tracking-tight mb-6">

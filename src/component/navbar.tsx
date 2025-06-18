@@ -40,8 +40,8 @@ const Navbar = () => {
     if (!mounted) return null;
 
     const linkClass = isProductPage
-      ? "text-gray-200 hover:text-white px-3 py-2 rounded-md text-md font-medium"
-      : "text-gray-700 hover:text-gray-300 px-3 py-2 rounded-md text-md font-medium";
+      ? "text-gray-200 hover:text-white cursor-pointer px-3 py-2 rounded-md text-md font-medium"
+      : "text-gray-700 hover:text-gray-300 px-3 py-2 cursor-pointer rounded-md text-md font-medium";
 
     if (isLoggedIn) {
       return (
